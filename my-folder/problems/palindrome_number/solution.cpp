@@ -2,7 +2,6 @@ class Solution {
 public:
     bool isPalindrome(int x) {
         int temp = x;
-        int temp2 = x;
         if (x<0){
             return false;
         }
@@ -10,19 +9,13 @@ public:
             return true;
         }
         else{
-            int count = 0;
-            while(temp!= 0){
-                temp = temp/10;
-                count++;
-            }
-            int rem;
             long long rev = 0;
-            for(int i = count-1;i>=0;i--){
-                rem = temp2%10;
-                temp2 = temp2/10;
-                rev = rev + rem*(long long)pow(10,i);
-            }
-            if(x == rev){
+        while(x != 0){
+            int rem = x%10;
+            x /= 10;
+            rev = rev*10 + rem;
+        }
+            if(temp == rev){
                 return true;
             }
             else return false;
